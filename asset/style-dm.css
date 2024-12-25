@@ -1,0 +1,137 @@
+.search-bar {
+    float: right;
+    margin-right: 20px;
+}
+
+.search-bar input[type="text"] {
+    padding: 5px;
+    font-size: 14px;
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: px;
+    flex-wrap: wrap;
+}
+
+.car-image,
+.car-info {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    margin: 10px;
+}
+
+.car-image img {
+    max-width: 100%;
+    border-radius: px;
+}
+
+.car-details {
+    margin-top: 20px;
+}
+
+.car-details h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.car-details p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.status {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.status.not-available {
+    background-color: #dc3545;
+}
+
+.status.available {
+    background-color: #17a2b8;
+}
+
+.status.price {
+    background-color: #343a40;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.buttons .booking {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.buttons .back {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+.footer {
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .search-bar,
+    .user-info {
+        float: none;
+        text-align: center;
+        margin: 10px 0;
+    }
+}

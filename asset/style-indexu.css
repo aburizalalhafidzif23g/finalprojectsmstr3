@@ -1,0 +1,183 @@
+body {
+    background-color: #e6f7ff;
+}
+
+/* Aturan untuk body dan html */
+html, body {
+    height: 100%; /* Memastikan tinggi body dan html 100% dari viewport */
+    margin: 0; /* Menghapus margin default */
+}
+
+/* Kontainer utama */
+.content {
+    flex: 1; /* Membuat konten mengambil ruang yang tersisa */
+}
+
+/* Footer */
+footer {
+    background-color: #007bff; /* Ganti dengan warna yang diinginkan */
+    padding: 15px 0; /* Menambahkan padding untuk footer */
+    position: relative; /* Mengatur posisi footer */
+    bottom: 0; /* Menempatkan footer di bagian bawah */
+    width: 100%; /* Memastikan footer mengambil lebar penuh */
+}
+
+a {
+    color: #fff !important;
+}
+
+#home {
+    margin-top: 50px; /* Sesuaikan dengan tinggi navbar Anda */
+}
+
+i {
+    color: black;
+}
+
+h1, h2, h3, h4, h6, p {
+    color: black; /* Pastikan semua heading dan paragraf berwarna hitam */
+}
+
+label {
+    color: black; /* Mengatur warna teks label menjadi hitam */
+}
+
+.carousel-caption h5 {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+.card {
+    border-radius: 20px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.navbar-nav .nav-item .nav-link {
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transisi untuk efek hover */
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Ubah warna latar belakang saat hover */
+    color: #f0ad4e; /* Ubah warna teks saat hover */
+}
+
+footer {
+    padding: 15px 0;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #f0ad4e;
+}
+
+footer p {
+    color: black;
+}
+
+.card .card-text {
+    color: inherit; /* Mengatur warna teks di dalam card mengikuti warna default */
+}
+
+.fade-in {
+    opacity: 0; /* Mulai dengan transparan */
+    transform: translateY(20px); /* Mulai sedikit di bawah */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Transisi untuk efek */
+}
+
+.fade-in.visible {
+    opacity: 1; /* Menjadi terlihat */
+    transform: translateY(0); /* Kembali ke posisi normal */
+}
+
+/* Efek hover untuk kartu mobil */
+.card {
+    transition: transform 0.3s ease; /* Transisi untuk efek hover */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Naik sedikit saat hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan untuk efek kedalaman */
+}
+@media (max-width: 768px) {
+    #home h1 {
+        font-size: 8vw; /* Ukuran font lebih besar di layar kecil */
+    }
+    #home p {
+        font-size: 4vw; /* Ukuran font lebih besar di layar kecil */
+    }
+    h1 {
+        font-size: 20px; /* Ukuran font lebih kecil untuk h1 */
+    }
+    h2 {
+        font-size: 18px; /* Ukuran font lebih kecil untuk h2 */
+    }
+    h3 {
+        font-size: 16px; /* Ukuran font lebih kecil untuk h3 */
+    }
+    p {
+        font-size: 14px; /* Ukuran font lebih kecil untuk paragraf */
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 18px; /* Ukuran font lebih kecil untuk h1 */
+    }
+    h2 {
+        font-size: 16px; /* Ukuran font lebih kecil untuk h2 */
+    }
+    h3 {
+        font-size: 14px; /* Ukuran font lebih kecil untuk h3 */
+    }
+    p {
+        font-size: 12px; /* Ukuran font lebih kecil untuk paragraf */
+    }
+
+    .container {
+        padding: 10px; /* Padding lebih kecil */
+    }
+
+    .table {
+        font-size: 14px; /* Ukuran font tabel lebih kecil */
+    }
+
+    img {
+        width: 100%; /* Gambar akan menyesuaikan lebar kontainer */
+        height: auto; /* Tinggi otomatis untuk menjaga rasio aspek */
+    }
+
+    .btn {
+        width: 100%; /* Tombol akan mengambil lebar penuh */
+        margin-bottom: 10px; /* Jarak antar tombol */
+    }
+}
+
+/* Gaya untuk perangkat dengan lebar maksimum 480px (ponsel kecil) */
+@media (max-width: 480px) {
+    h3 {
+        font-size: 20px; /* Ukuran font lebih kecil untuk judul */
+    }
+
+    .table {
+        font-size: 12px; /* Ukuran font tabel lebih kecil */
+    }
+
+    .form-control {
+        font-size: 14px; /* Ukuran font input lebih kecil */
+    }
+
+    .form-control-file {
+        font-size: 12px; /* Ukuran font input file lebih kecil */
+    }
+}
