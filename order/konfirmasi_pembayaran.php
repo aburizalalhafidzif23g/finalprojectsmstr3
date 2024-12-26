@@ -60,13 +60,88 @@ $hasil = $result->fetch_assoc();
         i {
             color: #000;
         }
+        @media (max-width: 768px) {
+        #home h1 {
+            font-size: 8vw; /* Ukuran font lebih besar di layar kecil */
+        }
+        #home p {
+            font-size: 4vw; /* Ukuran font lebih besar di layar kecil */
+        }
+        h1 {
+            font-size: 20px; /* Ukuran font lebih kecil untuk h1 */
+        }
+        h2 {
+            font-size: 18px; /* Ukuran font lebih kecil untuk h2 */
+        }
+        h3 {
+            font-size: 16px; /* Ukuran font lebih kecil untuk h3 */
+        }
+        p {
+            font-size: 14px; /* Ukuran font lebih kecil untuk paragraf */
+        }
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 18px; /* Ukuran font lebih kecil untuk h1 */
+        }
+        h2 {
+            font-size: 16px; /* Ukuran font lebih kecil untuk h2 */
+        }
+        h3 {
+            font-size: 14px; /* Ukuran font lebih kecil untuk h3 */
+        }
+        p {
+            font-size: 12px; /* Ukuran font lebih kecil untuk paragraf */
+        }
+
+        .container {
+            padding: 10px; /* Padding lebih kecil */
+        }
+
+        .table {
+            font-size: 14px; /* Ukuran font tabel lebih kecil */
+        }
+
+        img {
+            width: 100%; /* Gambar akan menyesuaikan lebar kontainer */
+            height: auto; /* Tinggi otomatis untuk menjaga rasio aspek */
+        }
+
+        .btn {
+            width: 100%; /* Tombol akan mengambil lebar penuh */
+            margin-bottom: 10px; /* Jarak antar tombol */
+        }
+    }
+
+    /* Gaya untuk perangkat dengan lebar maksimum 480px (ponsel kecil) */
+    @media (max-width: 480px) {
+        h3 {
+            font-size: 20px; /* Ukuran font lebih kecil untuk judul */
+        }
+
+        .table {
+            font-size: 12px; /* Ukuran font tabel lebih kecil */
+        }
+
+        .form-control {
+            font-size: 14px; /* Ukuran font input lebih kecil */
+        }
+
+        .form-control-file {
+            font-size: 12px; /* Ukuran font input file lebih kecil */
+        }
+    }
         
     </style>
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
         <a class="navbar-brand" href="#"><i class="fa-solid fa-car"></i> Lucky Rent Car</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -101,62 +176,64 @@ $hasil = $result->fetch_assoc();
                 <div class="card border" style="background-color: #DCDCDC;">
                     <div class="card-body"> 
                         <div class="card-header bg-primary text-center" style="color: white">
-                        <h2>Konfirmasi Pembayaran</h2>
+                            <h2>Konfirmasi Pembayaran</h2>
                         </div>
-                        <form method="post" action="proses_konfir.php?id=<?php echo $id_sewa;?>" enctype="multipart/form-data">
-                        <table class="table" style="color: #000;">
-                                <tr>
-                                    <td>Kode Booking</td>
-                                    <td>:</td>
-                                    <td><?php echo $hasil['id_sewa']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>No Rekening</td>
-                                    <td>:</td>
-                                    <td><input type="text" name="no_rek" required class="form-control"></td>
-                                </tr>
-                                <tr>
-                                    <td>Atas Nama</td>
-                                    <td>:</td>
-                                    <td><input type="text" name="nama" required class="form-control"></td>
-                                </tr>
-                                <tr>
-                                    <td>Nominal</td>
-                                    <td>:</td>
-                                    <td><input type="text" name="total_harga" required class="form-control"></td>
-                                </tr>
-                                <tr>
-                                    <td>Tanggal Transfer</td>
-                                    <td>:</td>
-                                    <td><input type="date" name="tanggal_pembayaran" required class="form-control"></td>
-                                </tr>
-                                <tr>
-                                    <td><label>Total yang Harus Dibayar</label></td>
-                                    <td>:</td>
-                                    <td>Rp. <?php echo number_format($hasil['harga_total']); ?></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="payment_method" style="color:#000">Metode Pembayaran </label></td>
-                                    <td>:</td>
-                                    <td>
-                                        <select name="metode_pembayaran" id="metode_pembayaran" required>
-                                            <option value="">--Pilih Metode Pembayaran--</option>
-                                            <option value="transfer">Transfer BRI</option>
-                                            <option value="transfer">Transfer BCA</option>
-                                            <option value="transfer">Transfer MANDIRI</option>
-                                            <option value="transfer">Transfer DANA</option>
-                                        </select>
-                                    </td>
-                                </tr>
+                        <div class="table-responsive">
+                            <form method="post" action="proses_konfir.php?id=<?php echo $id_sewa;?>" enctype="multipart/form-data">
+                                <table class="table table-striped table-sm" style="color: #000;">
+                                        <tr>
+                                            <td>Kode Booking</td>
+                                            <td>:</td>
+                                            <td><?php echo $hasil['id_sewa']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>No Rekening</td>
+                                            <td>:</td>
+                                            <td><input type="text" name="no_rek" required class="form-control"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Atas Nama</td>
+                                            <td>:</td>
+                                            <td><input type="text" name="nama" required class="form-control"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nominal</td>
+                                            <td>:</td>
+                                            <td><input type="text" name="total_harga" required class="form-control"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tanggal Transfer</td>
+                                            <td>:</td>
+                                            <td><input type="date" name="tanggal_pembayaran" required class="form-control"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Total yang Harus Dibayar</label></td>
+                                            <td>:</td>
+                                            <td>Rp. <?php echo number_format($hasil['harga_total']); ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label for="payment_method" style="color:#000">Metode Pembayaran </label></td>
+                                            <td>:</td>
+                                            <td>
+                                                <select name="metode_pembayaran" id="metode_pembayaran" required>
+                                                    <option value="">--Pilih Metode Pembayaran--</option>
+                                                    <option value="transfer">Transfer BRI</option>
+                                                    <option value="transfer">Transfer BCA</option>
+                                                    <option value="transfer">Transfer MANDIRI</option>
+                                                    <option value="transfer">Transfer DANA</option>
+                                                </select>
+                                            </td>
+                                        </tr>
 
-                                <tr>
-                                    <td>Bukti Pembayaran</td>
-                                    <td>:</td>
-                                    <td><input type="file" name="bukti_pembayaran" required class="form-control-file" accept="image/*"></td>
-                                </tr>
-                            </table>
-                            <button type="submit" name="submit" class="btn btn-primary float-right">Kirim</button>
-                        </form>
+                                        <tr>
+                                            <td>Bukti Pembayaran</td>
+                                            <td>:</td>
+                                            <td><input type="file" name="bukti_pembayaran" required class="form-control-file" accept="image/*"></td>
+                                        </tr>
+                                    </table>
+                                <button type="submit" name="submit" class="btn btn-primary float-right">Kirim</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

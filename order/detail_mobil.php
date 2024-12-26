@@ -34,7 +34,8 @@ $result = $stmt->get_result();
 
 // Memeriksa apakah mobil ditemukan
 if ($result->num_rows == 0) {
-    die("Mobil tidak ditemukan.");
+    echo "<script>alert('Mobil tidak ditemukan.'); window.history.back();</script>";
+    exit;
 }
 
 // Mengambil data hasil pencarian

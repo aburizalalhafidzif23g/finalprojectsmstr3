@@ -33,7 +33,7 @@ if (file_exists($target_file)) {
     echo "<script>alert('File sudah ada.'); window.history.back();</script>";
     exit;
 }
-if ($bukti_pembayaran["size"] > 500000) {
+if ($bukti_pembayaran["size"] > 1000000) {
     echo "<script>alert('Ukuran file terlalu besar.'); window.history.back();</script>";
     exit;
 }

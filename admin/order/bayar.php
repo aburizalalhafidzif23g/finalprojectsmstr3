@@ -105,6 +105,78 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['status_mobil'])) {
         }
         .text-black {
         color: black;
+        }
+        @media (max-width: 768px) {
+        #home h1 {
+            font-size: 8vw; /* Ukuran font lebih besar di layar kecil */
+        }
+        #home p {
+            font-size: 4vw; /* Ukuran font lebih besar di layar kecil */
+        }
+        h1 {
+            font-size: 20px; /* Ukuran font lebih kecil untuk h1 */
+        }
+        h2 {
+            font-size: 18px; /* Ukuran font lebih kecil untuk h2 */
+        }
+        h3 {
+            font-size: 16px; /* Ukuran font lebih kecil untuk h3 */
+        }
+        p {
+            font-size: 14px; /* Ukuran font lebih kecil untuk paragraf */
+        }
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 18px; /* Ukuran font lebih kecil untuk h1 */
+        }
+        h2 {
+            font-size: 16px; /* Ukuran font lebih kecil untuk h2 */
+        }
+        h3 {
+            font-size: 14px; /* Ukuran font lebih kecil untuk h3 */
+        }
+        p {
+            font-size: 12px; /* Ukuran font lebih kecil untuk paragraf */
+        }
+
+        .container {
+            padding: 10px; /* Padding lebih kecil */
+        }
+
+        .table {
+            font-size: 14px; /* Ukuran font tabel lebih kecil */
+        }
+
+        img {
+            width: 100%; /* Gambar akan menyesuaikan lebar kontainer */
+            height: auto; /* Tinggi otomatis untuk menjaga rasio aspek */
+        }
+
+        .btn {
+            width: 100%; /* Tombol akan mengambil lebar penuh */
+            margin-bottom: 10px; /* Jarak antar tombol */
+        }
+    }
+
+    /* Gaya untuk perangkat dengan lebar maksimum 480px (ponsel kecil) */
+    @media (max-width: 480px) {
+        h3 {
+            font-size: 20px; /* Ukuran font lebih kecil untuk judul */
+        }
+
+        .table {
+            font-size: 12px; /* Ukuran font tabel lebih kecil */
+        }
+
+        .form-control {
+            font-size: 14px; /* Ukuran font input lebih kecil */
+        }
+
+        .form-control-file {
+            font-size: 12px; /* Ukuran font input file lebih kecil */
+        }
     }
     </style>
 </head>

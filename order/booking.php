@@ -193,10 +193,6 @@ $row = $result->fetch_assoc();
                 <li class="nav-item">
                     <a class="nav-link"><i class="fas fa-user"></i><?php echo $_SESSION['username']; ?></a>
                 </li>
-                <div class="search-bar">
-                    <input placeholder="Cari Nama Mobil" type="text" />
-                    <button>Search</button>
-                </div>
             </ul>
         </div>
     </nav>

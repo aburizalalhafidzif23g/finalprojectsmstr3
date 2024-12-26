@@ -218,8 +218,8 @@ $result = mysqli_query($konek, $sql);
               referrerpolicy="no-referrer-when-downgrade">
             </iframe>
           </div>
-          <p><i class="fas fa-envelope"></i> rentalmobil@gmail.com</p>
-          <p><i class="fas fa-phone"></i> 08585233222</p>
+          <p><i class="fas fa-envelope"></i> luckyrentcar@gmail.com</p>
+          <p><i class="fas fa-phone"></i> 081280822481</p>
         </div>
       </div>
   </section>
@@ -259,7 +259,6 @@ $result = mysqli_query($konek, $sql);
         <a href="https://www.facebook.com/luki.asluki?mibextid=ZbWKwL" class="mx-2"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="mx-2"><i class="fab fa-twitter"></i></a>
         <a href="#" class="mx-2"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="mx-2"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
   </footer>

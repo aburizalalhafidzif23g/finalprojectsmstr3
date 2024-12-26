@@ -44,10 +44,10 @@
                                             <td>
                                             <?php if (!empty($data['foto'])): ?>
                                                 <a href="#" data-toggle="modal" data-target="#buktiModal">
-        <img src="../user/uploads/<?php echo $data['foto']; ?>" alt="Foto User" class="card-img-top" style="width: 100px;">
-    <?php else: ?> </a>
-        <img src="img/default.jpg" alt="Tidak ada foto" class="card-img-top" style="width: 100px;">
-    <?php endif; ?>
+                                                <img src="../user/uploads/<?php echo $data['foto']; ?>" alt="Foto User" class="card-img-top" style="width: 100px;">
+                                            <?php else: ?> </a>
+                                                <img src="img/default.jpg" alt="Tidak ada foto" class="card-img-top" style="width: 100px;">
+                                            <?php endif; ?>
                                             </td>
                                             <td><?php echo $data['nomor_hp']; ?></td>
                                             <td><?php echo $data['email']; ?></td>

@@ -245,7 +245,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <a href="https://www.facebook.com/luki.asluki?mibextid=ZbWKwL" class="mx-2"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="mx-2"><i class="fab fa-twitter"></i></a>
         <a href="#" class="mx-2"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="mx-2"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
 

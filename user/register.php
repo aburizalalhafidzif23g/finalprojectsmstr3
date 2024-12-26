@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_FILES['foto']) && $_FILES['foto']['error'] == 0) {
             // Periksa ukuran file
             if ($_FILES['foto']['size'] > $maxFileSize) {
-                $error = "Ukuran file terlalu besar. Maksimal ukuran file adalah 50MB.";
+                $error = "Ukuran file terlalu besar. Maksimal ukuran file adalah 100MB.";
             } else {
                 $foto_name = $_FILES['foto']['name'];
                 $foto_tmp = $_FILES['foto']['tmp_name'];
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $foto = $foto_new_name;
                 } else {
                     $foto = null;
-                    echo "Gagal mengunggah foto.";
+                    echo "<script>alert('Gagal mengunggah foto.'); window.location.href = 'register.php';</script>";
                 }
             }
         }
@@ -137,6 +137,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     .container {
       padding-top: 100px;
     }
+    
+    
 
     @keyframes slideIn {
       from {
@@ -225,7 +227,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <?php endif; ?>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary w-100">
-  <a class="navbar-brand" href="#"><i class="fa-solid fa-car"></i> Lucky Rent Car</a>
+  <a class="navbar-brand" href="#"><i class="fa-solid fa-car" style="color: black;"></i> Lucky Rent Car</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

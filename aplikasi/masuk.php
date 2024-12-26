@@ -46,7 +46,7 @@ if ($dataUser ) {
     }
 } else {
     // Username tidak ditemukan
-    echo "<script>alert('Username tidak ditemukan!'); window.location='../admin/login.php';</script>";
+    echo "<script>alert('Username tidak ditemukan!'); window.location='../login.php';</script>";
     exit();
 }
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 17, 2024 at 04:44 PM
+-- Generation Time: Dec 25, 2024 at 03:40 PM
 -- Server version: 8.0.40
 -- PHP Version: 8.1.10
 
@@ -68,13 +68,10 @@ CREATE TABLE `mobil` (
 --
 
 INSERT INTO `mobil` (`id_mobil`, `no_polisi`, `merk`, `tahun`, `harga`, `s_mobil`, `poto`, `deskripsi`, `created_at`) VALUES
-(23, 'tb 4535 l', 'bmw', '2010', 150000, 'AKTIF', '../uploads/gambar2.jpg', 'mobil keluaran eropa', '2024-12-07 14:58:05'),
-(24, 'T 1111 LI', 'agya', '2011', 100000, 'AKTIF', '../uploads/gambar8.jpeg', 'mobil agya keluaran terbaru, dan fasilitasi audio yang bagus serta tampilan elelegan,\r\ncocok buat liburan pengantin baru', '2024-12-08 10:05:18'),
-(25, 'T 4741 BM', 'Kijang Inova', '2017', 120000, 'AKTIF', '../uploads/gambar7.png', 'Mobil cocok untuk mudik 1 keluarga, di lengkapi pasilitas menarik, dan Atap bisa di buka', '2024-12-08 10:07:27'),
-(26, 'T 3902 BL', 'Ertiga', '2018', 120000, 'AKTIF', '../uploads/gambar6.jpeg', 'Mobil Baru, Cocok untuk Liburan Keluarga', '2024-12-08 10:08:53'),
-(27, 'T 2121 LOL', 'Ertiga', '2024', 120000, 'AKTIF', '../uploads/gambar4.jpeg', 'Mobil Keluaran terbaru Dengan transmisi semi otomatis', '2024-12-08 10:13:12'),
-(28, 'B 33242 HU', 'CARY', '2011', 100000, 'AKTIF', '../uploads/gambar9.jpeg', 'MOBIL BARU', '2024-12-08 12:11:00'),
-(29, 'T 235979 bl', 'BMW', '2012', 150000, 'AKTIF', '../uploads/gambar6.jpeg', 'mobil baru', '2024-12-16 20:35:24');
+(26, 'T 3902 BL', 'Ertiga', '2018', 120000, 'AKTIF', '../uploads/gambar5.jpeg', 'Mobil Baru, Cocok untuk Liburan Keluarga', '2024-12-08 10:08:53'),
+(27, 'T 2121 LOL', 'Fred', '2024', 120000, 'AKTIF', '../uploads/gambar8.jpeg', 'Mobil Keluaran terbaru Dengan transmisi semi otomatis', '2024-12-08 10:13:12'),
+(32, 'T 123 BW', 'KLX', '2018', 120000, 'TIDAK AKTIF', '../uploads/gambar9.jpeg', 'mobil  dari akeluaran terbar', '2024-12-19 19:11:30'),
+(37, 'B 555 TL', 'xenia', '2024', 150000, 'AKTIF', '../uploads/gambar6.jpeg', 'Mobil Avanza Dengan interior mewah, dan mulus', '2024-12-22 21:55:15');
 
 -- --------------------------------------------------------
 
@@ -84,10 +81,12 @@ INSERT INTO `mobil` (`id_mobil`, `no_polisi`, `merk`, `tahun`, `harga`, `s_mobil
 
 CREATE TABLE `pembayaran` (
   `id_pembayaran` int NOT NULL,
-  `id_mobil` int DEFAULT NULL,
+  `id_sewa` int DEFAULT NULL,
+  `nama` varchar(50) DEFAULT NULL,
   `total_harga` decimal(10,2) DEFAULT NULL,
   `metode_pembayaran` varchar(50) DEFAULT NULL,
-  `status_pembayaran` varchar(50) DEFAULT NULL,
+  `no_rek` varchar(50) DEFAULT NULL,
+  `bukti_pembayaran` varchar(255) DEFAULT NULL,
   `tanggal_pembayaran` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -95,11 +94,22 @@ CREATE TABLE `pembayaran` (
 -- Dumping data for table `pembayaran`
 --
 
-INSERT INTO `pembayaran` (`id_pembayaran`, `id_mobil`, `total_harga`, `metode_pembayaran`, `status_pembayaran`, `tanggal_pembayaran`) VALUES
-(1, 23, '150000.00', 'transfer', 'pending', NULL),
-(2, 23, '150000.00', 'transfer', 'pending', NULL),
-(3, 23, '150000.00', 'transfer', 'pending', NULL),
-(4, 23, '150000.00', 'cash', 'success', NULL);
+INSERT INTO `pembayaran` (`id_pembayaran`, `id_sewa`, `nama`, `total_harga`, `metode_pembayaran`, `no_rek`, `bukti_pembayaran`, `tanggal_pembayaran`) VALUES
+(34, 118, 'Amirul', '120000.00', 'transfer', '1234', '../uploads/Screenshot_20241221-194726.jpg', '2024-12-22 00:00:00'),
+(35, 120, 'Aldi', '240000.00', 'transfer', '1234', '../uploads/20119d24-2d77-45ba-93ab-86e55b16b71e.jpeg', '2024-12-24 00:00:00'),
+(36, 121, 'Kurniati', '200000.00', 'cash', '778', '../uploads/Screenshot 2023-12-15 125101.png', '2024-12-22 00:00:00'),
+(37, 122, 'Aisyah', '120000.00', 'transfer', '1234', '../uploads/Screenshot 2024-06-26 235238.png', '2024-12-22 00:00:00'),
+(38, 123, 'Aisyah', '150000.00', 'cash', '1234', '../uploads/lp1.jpg', '2024-12-23 00:00:00'),
+(39, 124, 'Aisyah', '150000.00', 'transfer', '1234', '../uploads/Screenshot 2024-04-21 201017.png', '2024-12-24 00:00:00'),
+(40, 125, 'hikal', '200000.00', 'transfer', '123456', '../uploads/2.png', '2024-12-25 00:00:00'),
+(41, 126, 'Amirul', '2480000.00', 'transfer', '54321', '../uploads/Screenshot 2024-06-30 165616.png', '2024-12-24 00:00:00'),
+(42, 127, 'Amirul', '100000.00', 'cash', '54321', '../uploads/Screenshot 2024-04-21 102238.png', '2024-12-24 00:00:00'),
+(43, 128, 'Diki', '120000.00', 'transfer', '1234321', '../uploads/Laporan.png', '2024-12-24 00:00:00'),
+(44, 129, 'Arifah', '150000.00', 'transfer', '555555', '../uploads/Proses Penyewaan.png', '2024-12-24 00:00:00'),
+(45, 130, 'iki', '500000.00', 'transfer', '09876', '../uploads/RS.png', '2024-12-25 00:00:00'),
+(46, 132, 'ilham', '240000.00', 'transfer', '12ilham', '../uploads/WIN_20240509_06_34_49_Pro.jpg', '2024-12-11 00:00:00'),
+(47, 133, 'Amirul', '100000.00', 'transfer', '54321', '../uploads/Screenshot 2024-06-12 220425.png', '2024-12-25 00:00:00'),
+(48, 134, 'Amirul', '100000.00', 'transfer', '54321', '../uploads/WIN_20240531_00_34_30_Pro.jpg', '2024-12-25 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -122,34 +132,43 @@ CREATE TABLE `pendapatan` (
 
 CREATE TABLE `sewa` (
   `id_sewa` int NOT NULL,
-  `id_mobil` int NOT NULL,
+  `id_mobil` int DEFAULT NULL,
   `id_user` int NOT NULL,
   `nama_sewa` varchar(90) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `ktp` varchar(25) NOT NULL,
   `jenkel_sewa` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `alamat` varchar(90) NOT NULL,
-  `tlp_sewa` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `tlp_sewa` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `tujuan` varchar(90) NOT NULL,
   `tgl_sewa` date NOT NULL,
   `tgl_kembali` date NOT NULL,
   `lama` int NOT NULL,
   `harga_total` double NOT NULL,
-  `kode_booking` varchar(50) DEFAULT NULL
+  `konf_pembayaran` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `sewa`
 --
 
-INSERT INTO `sewa` (`id_sewa`, `id_mobil`, `id_user`, `nama_sewa`, `ktp`, `jenkel_sewa`, `alamat`, `tlp_sewa`, `tujuan`, `tgl_sewa`, `tgl_kembali`, `lama`, `harga_total`, `kode_booking`) VALUES
-(21, 25, 6, 'mia', '0101010', 'Perempuan', 'legok hangser', '0851234567', 'karawang', '2024-12-10', '2024-12-11', 1, 120000, NULL),
-(22, 26, 6, 'efil', '989896254658', 'Perempuan', 'johar', '986545789', 'cikampek', '2024-12-11', '2024-12-12', 1, 120000, NULL),
-(23, 23, 6, 'galih', '123456789', 'Laki-Laki', 'gempol', '085433256255', 'bekasi', '2024-12-12', '2024-12-14', 2, 300000, NULL),
-(24, 23, 10, 'selena', '54278698786745634', 'Perempuan', 'telagasari', '0099986369', 'Bandung', '2024-12-12', '2024-12-16', 4, 600000, NULL),
-(25, 23, 10, 'leni', '86643578', 'Perempuan', 'legok hangser', '0851234567', 'bekasi', '2024-12-12', '2024-12-14', 2, 300000, NULL),
-(28, 24, 10, 'Aisyah', '010102910281028', 'Perempuan', 'tunggak jati', '089098765', 'magelang', '2024-12-17', '2024-12-19', 2, 200000, NULL),
-(40, 24, 10, 'hikal', '123321', 'Laki-Laki', 'gempol', '085433256255', 'bekasi', '2024-12-17', '2024-12-18', 1, 100000, NULL),
-(41, 24, 10, 'hikal', '123321', 'Laki-Laki', 'gempol', '085433256255', 'bekasi', '2024-12-17', '2024-12-19', 2, 200000, NULL);
+INSERT INTO `sewa` (`id_sewa`, `id_mobil`, `id_user`, `nama_sewa`, `ktp`, `jenkel_sewa`, `alamat`, `tlp_sewa`, `tujuan`, `tgl_sewa`, `tgl_kembali`, `lama`, `harga_total`, `konf_pembayaran`) VALUES
+(118, 26, 6, 'Amirul', '2347788661', 'Laki-Laki', 'bumi ayu, jawa tengah ', '08534211', 'Purwakarta ', '2024-12-22', '2024-12-23', 1, 120000, 'Pembayaran diterima'),
+(119, 31, 6, 'ilham', '32323232', 'Laki-Laki', 'Jl. HS.Ronggo Waluyo, Puseurjaya, Telukjambe Timur, Karawang, Jawa Barat', '08534736', 'purwakarta', '2024-12-22', '2024-12-23', 1, 150000, 'Belum Bayar'),
+(120, 26, 12, 'Aldi', '321098', 'Laki-Laki', 'Telagasari', '098765432112', 'Bogor', '2024-12-23', '2024-12-25', 2, 240000, 'Pembayaran di terima'),
+(121, 28, 6, 'Kurniati', '3214141414', 'Perempuan', 'Telukjambe Timur, Karawang, Jawa Barat', '08534736', 'purwakarta', '2024-12-22', '2024-12-24', 2, 200000, 'Pembayaran di terima'),
+(122, 27, 6, 'rizal', '123321', 'Laki-Laki', 'tunggak jati', '85712345', 'karawang', '2024-12-22', '2024-12-23', 1, 120000, 'Pembayaran diterima'),
+(123, 31, 6, 'rizal', '123321', 'Laki-Laki', 'tunggak jati', '85712345', 'telagasari', '2024-12-23', '2024-12-24', 1, 150000, 'Pembayaran diterima'),
+(124, 37, 10, 'mia', '6767676', 'Perempuan', 'tunggak jati', '08987676', 'telagasari', '2024-12-24', '2024-12-25', 1, 150000, 'Sedang di proses'),
+(125, 28, 6, 'hikal', '989896254658', 'Laki-Laki', 'johar', '0986545789', 'Bandung', '2024-12-24', '2024-12-26', 2, 200000, 'Pembayaran diterima'),
+(126, 32, 11, 'Amirul', '12345', 'Laki-Laki', 'Bumi Ayu, Jawa Timur', '085712435541', 'Bandung', '2024-12-24', '2024-12-28', 4, 480000, 'Pembayaran diterima'),
+(127, 28, 11, 'azhar', '12345', 'Laki-Laki', 'johar', '0986545789', 'Bandung', '2024-12-24', '2024-12-25', 1, 100000, 'Pembayaran diterima'),
+(128, 27, 6, 'Diki', '32984948394839', 'Laki-Laki', 'kalisari', '011111111166', 'Karawang', '2024-12-24', '2024-12-25', 1, 120000, 'Pembayaran diterima'),
+(129, 37, 10, 'Arifah', '321425520987', 'Perempuan', 'ronggowaluyo', '1234567890987', 'pasar', '2024-12-24', '2024-12-25', 1, 150000, 'Pembayaran diterima'),
+(130, 32, 6, 'iki', '4567890', 'Laki-Laki', 'Kecamatan Wadas rt.002 rw.001 desa kali', '009988', 'batam', '2024-12-26', '2024-12-31', 5, 600000, 'Pembayaran diterima'),
+(131, 26, 11, 'ilham', '3232325545414', 'Laki-Laki', 'Telukjambe Timur, Karawang, Jawa Barat', '0000000', 'purwakarta', '2024-12-25', '2024-12-26', 1, 120000, 'Belum Bayar'),
+(132, 26, 11, 'ilham', '3232325545414', 'Laki-Laki', 'Telukjambe Timur, Karawang, Jawa Barat', '0000000', 'purwakarta', '2024-12-25', '2024-12-26', 1, 120000, 'Pembayaran diterima'),
+(133, 28, 6, 'azhar', '12345', 'Laki-Laki', 'johar', '0986545789', 'Bandung', '2024-12-25', '2024-12-26', 1, 100000, 'Pembayaran diterima'),
+(134, 26, 6, 'hikal', '123321', 'Laki-Laki', 'telagasari', '85712345', 'Bandung', '2024-12-25', '2024-12-26', 1, 120000, 'Sedang Diproses');
 
 -- --------------------------------------------------------
 
@@ -174,7 +193,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id_user`, `nama_lengkap`, `nomor_hp`, `username`, `email`, `password`, `foto`, `created_at`) VALUES
 (6, 'Hikal Marpratama', '008512345', 'hikal', 'hikal@gmail.com', '$2y$10$ppoSRXG/tNfmCW/bYhWTheD2q7Yq3p2Unlyzl2UUJ4TFI1srfvcDq', '674f6f5d4152d.jpg', '2024-12-03 20:51:41'),
-(10, 'aisyah', '08544444444', 'aisyah', 'aisyah@gmail.com', '$2y$10$JvGSwqKQN2TpxttWDyqPtect/xd4JgLesFSssZeNKTQEXk0hW5eAO', '6753ff5f19434.png', '2024-12-07 07:55:11');
+(13, 'fahry', '0004445', 'fahry', 'fahry@gmail.com', '$2y$10$2ByxqgA.9ZDjZ4nsyaiwT.NAiwqLeOw0HGjnhcLxZQhIGrgd0Ic9m', '676c010decbd2.jpg', '2024-12-25 12:56:45');
 
 --
 -- Indexes for dumped tables
@@ -197,7 +216,7 @@ ALTER TABLE `mobil`
 --
 ALTER TABLE `pembayaran`
   ADD PRIMARY KEY (`id_pembayaran`),
-  ADD KEY `id_mobil` (`id_mobil`);
+  ADD KEY `id_mobil` (`id_sewa`);
 
 --
 -- Indexes for table `pendapatan`
@@ -234,13 +253,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `mobil`
 --
 ALTER TABLE `mobil`
-  MODIFY `id_mobil` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_mobil` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_pembayaran` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pembayaran` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `pendapatan`
@@ -252,23 +271,13 @@ ALTER TABLE `pendapatan`
 -- AUTO_INCREMENT for table `sewa`
 --
 ALTER TABLE `sewa`
-  MODIFY `id_sewa` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id_sewa` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `pembayaran`
---
-ALTER TABLE `pembayaran`
-  ADD CONSTRAINT `pembayaran_ibfk_1` FOREIGN KEY (`id_mobil`) REFERENCES `mobil` (`id_mobil`);
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

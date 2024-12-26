@@ -65,8 +65,11 @@ $row = $result->fetch_assoc();
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
         <a class="navbar-brand" href="#"><i class="fa-solid fa-car"></i> Lucky Rent Car</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -110,11 +113,11 @@ $row = $result->fetch_assoc();
                             </li>
                             <li class="list-group-item bg-dark text-white">
                             <p class="card-text" style="color: black">
-                        <strong>Status:</strong> 
-                        <span class="badge <?php echo $row['s_mobil'] === 'AKTIF' ? 'badge-success' : 'badge-danger'; ?>">
-                            <?php echo $row['s_mobil']; ?>
-                        </span>
-                    </p>
+                                <strong>Status:</strong> 
+                                <span class="badge <?php echo $row['s_mobil'] === 'AKTIF' ? 'badge-success' : 'badge-danger'; ?>">
+                                    <?php echo $row['s_mobil']; ?>
+                                </span>
+                            </p>
                             </li>
                         </ul>
                     </div>

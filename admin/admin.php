@@ -19,13 +19,13 @@
             <div class="col-md-12">
                 <div class="card m-3">
                     <div class="card-body">
-                        <table class="table table-striped">
                             <?php
                             if ($_SESSION['level'] == "SUPER") {
                                 include("../db/koneksi.php");
                                 $cari = mysqli_query($konek, "select * from admin") or die(mysqli_error($konek));
                             ?>
                                 <h3 class="text-center">Data Admin</h3>
+                                <div class="table-responsive">
                                 <table class="table table-striped table-hover table-bordered table-sm">
                                     <thead>
                                         <tr>
@@ -70,7 +70,7 @@
 
                             }
                             ?>
-                        </table>
+                        </div>
                     </div>
                 </div>
             </div>
