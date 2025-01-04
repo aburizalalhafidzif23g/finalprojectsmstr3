@@ -1,41 +1,58 @@
 <?php
-include("../db/koneksi.php"); // Pastikan ini mengarah ke file koneksi yang benar
+include("../db/koneksi.php"); // Menggunakan koneksi database Anda
 session_start();
 
-// Memeriksa apakah ID mobil ada di URL
+// Memastikan ID mobil tersedia
 if (!isset($_GET['id_mobil'])) {
     die("ID mobil tidak ditemukan.");
 }
-class Booking {
-    private $db;
+
+// Definisi Class Kendaraan dan Mobil
+class Kendaraan {
+    protected $db;
 
     public function __construct($db) {
-        $this->db = $db->connection;
+        $this->db = $db;
     }
 
-    public function createBooking($data) {
-        // Logika untuk membuat pemesanan
-    }
+    public function getKendaraanById($id, $table, $idColumn) {
+        $sql = "SELECT * FROM $table WHERE $idColumn = ?";
+        $stmt = $this->db->prepare($sql);
 
-    public function getbooking ($id_user) {
-        // Logika untuk mengambil pemesanan berdasarkan ID pengguna
+        if (!$stmt) {
+            die("Error prepare statement: " . $this->db->error);
+        }
+
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows === 0) {
+            return null; // Data tidak ditemukan
+        }
+
+        return $result->fetch_assoc();
     }
 }
+
+class Mobil extends Kendaraan {
+    public function getMobilById($id_mobil) {
+        return $this->getKendaraanById($id_mobil, "mobil", "id_mobil");
+    }
+}
+
+
+// Buat instance class Mobil
+$mobilDb = new Mobil($konek);
+
+// Ambil data mobil berdasarkan ID
 $id_mobil = $_GET['id_mobil'];
+$row = $mobilDb->getMobilById($id_mobil);
 
-// Mengambil data mobil berdasarkan ID
-$sql = "SELECT * FROM mobil WHERE id_mobil = ?";
-$stmt = $konek->prepare($sql);
-$stmt->bind_param("i", $id_mobil);
-$stmt->execute();
-$result = $stmt->get_result();
-
-// Memeriksa apakah mobil ditemukan
-if ($result->num_rows == 0) {
+// Memeriksa apakah data mobil ditemukan
+if (!$row) {
     die("Mobil tidak ditemukan.");
 }
-
-$row = $result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -330,15 +347,52 @@ $row = $result->fetch_assoc();
                 });
             });
         });
-    </script>
-</body>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Mendapatkan tanggal hari ini dalam format YYYY-MM-DD
+            const today = new Date().toISOString().split('T')[0];
 
-</html>
+            // Ambil elemen input tanggal mulai dan selesai
+            const tanggalMulaiInput = document.querySelector('input[name="textMulai"]');
+            const tanggalSelesaiInput = document.querySelector('input[name="textSelesai"]');
+
+        // Set tanggal minimal untuk input tanggal mulai ke hari ini
+        if (tanggalMulaiInput) {
+            tanggalMulaiInput.setAttribute('min', today);
+        }
+
+        // Tambahkan event listener untuk validasi tanggal selesai
+        if (tanggalMulaiInput && tanggalSelesaiInput) {
+            tanggalMulaiInput.addEventListener('change', function() {
+                const tanggalMulai = tanggalMulaiInput.value;
+
+                // Set tanggal minimal selesai ke tanggal mulai
+                tanggalSelesaiInput.setAttribute('min', tanggalMulai);
+
+                // Validasi jika tanggal selesai lebih kecil dari tanggal mulai
+                if (tanggalSelesaiInput.value && tanggalSelesaiInput.value < tanggalMulai) {
+                    alert('Tanggal selesai tidak boleh lebih kecil dari tanggal mulai.');
+                    tanggalSelesaiInput.value = ''; // Reset input tanggal selesai
+                }
+            });
+
+                // Validasi tambahan untuk tanggal selesai
+                tanggalSelesaiInput.addEventListener('change', function() {
+                    const tanggalMulai = tanggalMulaiInput.value;
+                    const tanggalSelesai = tanggalSelesaiInput.value;
+
+                if (tanggalSelesai < tanggalMulai) {
+                    alert('Tanggal selesai tidak boleh lebih kecil dari tanggal mulai.');
+                    tanggalSelesaiInput.value = ''; // Reset input tanggal selesai
+                }
+            });
+        }
+    });
+    </script>
 </body>
 
 </html>
 
 <?php
-$stmt->close();
+
 $konek->close();
 ?>

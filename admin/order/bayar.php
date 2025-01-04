@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $update_sql = "UPDATE sewa SET konf_pembayaran = ? WHERE id_sewa = ?";
         $update_stmt = $konek->prepare($update_sql);
         $update_stmt->bind_param("si", $status, $id_sewa);
-        
+
         if ($update_stmt->execute()) {
             // Redirect atau tampilkan pesan sukses
             header("Location: bayar.php?id_sewa=" . $id_sewa);
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['status_mobil'])) {
     $update_mobil_sql = "UPDATE mobil SET s_mobil = ? WHERE id_mobil = ?";
     $update_mobil_stmt = $konek->prepare($update_mobil_sql);
     $update_mobil_stmt->bind_param("si", $status_mobil, $row['id_mobil']);
-    
+
     if ($update_mobil_stmt->execute()) {
         // Redirect atau tampilkan pesan sukses
         header("Location: bayar.php?id_sewa=" . $id_sewa);
@@ -100,101 +100,139 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['status_mobil'])) {
         p {
             color: #000;
         }
+
         i {
             color: #000;
         }
+
         .text-black {
-        color: black;
+            color: black;
         }
+
         @media (max-width: 768px) {
-        #home h1 {
-            font-size: 8vw; /* Ukuran font lebih besar di layar kecil */
-        }
-        #home p {
-            font-size: 4vw; /* Ukuran font lebih besar di layar kecil */
-        }
-        h1 {
-            font-size: 20px; /* Ukuran font lebih kecil untuk h1 */
-        }
-        h2 {
-            font-size: 18px; /* Ukuran font lebih kecil untuk h2 */
-        }
-        h3 {
-            font-size: 16px; /* Ukuran font lebih kecil untuk h3 */
-        }
-        p {
-            font-size: 14px; /* Ukuran font lebih kecil untuk paragraf */
-        }
-    }
+            #home h1 {
+                font-size: 8vw;
+                /* Ukuran font lebih besar di layar kecil */
+            }
 
-    @media (max-width: 768px) {
-        h1 {
-            font-size: 18px; /* Ukuran font lebih kecil untuk h1 */
-        }
-        h2 {
-            font-size: 16px; /* Ukuran font lebih kecil untuk h2 */
-        }
-        h3 {
-            font-size: 14px; /* Ukuran font lebih kecil untuk h3 */
-        }
-        p {
-            font-size: 12px; /* Ukuran font lebih kecil untuk paragraf */
+            #home p {
+                font-size: 4vw;
+                /* Ukuran font lebih besar di layar kecil */
+            }
+
+            h1 {
+                font-size: 20px;
+                /* Ukuran font lebih kecil untuk h1 */
+            }
+
+            h2 {
+                font-size: 18px;
+                /* Ukuran font lebih kecil untuk h2 */
+            }
+
+            h3 {
+                font-size: 16px;
+                /* Ukuran font lebih kecil untuk h3 */
+            }
+
+            p {
+                font-size: 14px;
+                /* Ukuran font lebih kecil untuk paragraf */
+            }
         }
 
-        .container {
-            padding: 10px; /* Padding lebih kecil */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 18px;
+                /* Ukuran font lebih kecil untuk h1 */
+            }
+
+            h2 {
+                font-size: 16px;
+                /* Ukuran font lebih kecil untuk h2 */
+            }
+
+            h3 {
+                font-size: 14px;
+                /* Ukuran font lebih kecil untuk h3 */
+            }
+
+            p {
+                font-size: 12px;
+                /* Ukuran font lebih kecil untuk paragraf */
+            }
+
+            .container {
+                padding: 10px;
+                /* Padding lebih kecil */
+            }
+
+            .table {
+                font-size: 14px;
+                /* Ukuran font tabel lebih kecil */
+            }
+
+            img {
+                width: 100%;
+                /* Gambar akan menyesuaikan lebar kontainer */
+                height: auto;
+                /* Tinggi otomatis untuk menjaga rasio aspek */
+            }
+
+            .btn {
+                width: 100%;
+                /* Tombol akan mengambil lebar penuh */
+                margin-bottom: 10px;
+                /* Jarak antar tombol */
+            }
         }
 
-        .table {
-            font-size: 14px; /* Ukuran font tabel lebih kecil */
-        }
+        /* Gaya untuk perangkat dengan lebar maksimum 480px (ponsel kecil) */
+        @media (max-width: 480px) {
+            h3 {
+                font-size: 20px;
+                /* Ukuran font lebih kecil untuk judul */
+            }
 
-        img {
-            width: 100%; /* Gambar akan menyesuaikan lebar kontainer */
-            height: auto; /* Tinggi otomatis untuk menjaga rasio aspek */
-        }
+            .table {
+                font-size: 12px;
+                /* Ukuran font tabel lebih kecil */
+            }
 
-        .btn {
-            width: 100%; /* Tombol akan mengambil lebar penuh */
-            margin-bottom: 10px; /* Jarak antar tombol */
-        }
-    }
+            .form-control {
+                font-size: 14px;
+                /* Ukuran font input lebih kecil */
+            }
 
-    /* Gaya untuk perangkat dengan lebar maksimum 480px (ponsel kecil) */
-    @media (max-width: 480px) {
-        h3 {
-            font-size: 20px; /* Ukuran font lebih kecil untuk judul */
+            .form-control-file {
+                font-size: 12px;
+                /* Ukuran font input file lebih kecil */
+            }
         }
-
-        .table {
-            font-size: 12px; /* Ukuran font tabel lebih kecil */
-        }
-
-        .form-control {
-            font-size: 14px; /* Ukuran font input lebih kecil */
-        }
-
-        .form-control-file {
-            font-size: 12px; /* Ukuran font input file lebih kecil */
-        }
-    }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(42, 159, 214);">
         <a class="navbar-brand" href="#"><i class="fa-solid fa-car"></i> Lucky Rent Car</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
+                <!-- Tombol Logout (Muncul hanya pada layar besar) -->
                 <li class="nav-item">
                     <a class="nav-link" href="../dashbord_admin.php?x=badmin"><i class="fas fa-home"></i>Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"><i class="fas fa-user"></i><?php echo $_SESSION['username']; ?></a>
                 </li>
+                </li>
             </ul>
         </div>
     </nav>
+
     <br>
     <br>
 
@@ -204,7 +242,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['status_mobil'])) {
                 <div class="card">
                     <div class="card border" style="background-color:rgb(11, 4, 3);">
                         <div class="card-header bg-white text-black">
-                            <h5 class="card-title" style="color:#000">Pembayaran Dapat Melalui :</h5>
+                            <h5 class="card-title" style="color:#000"> Detail Pembayaran :</h5>
                             <?php if ($pembayaran_data): ?>
                                 <table class="table">
                                     <tr>
@@ -220,7 +258,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['status_mobil'])) {
                                     <tr>
                                         <td class="text-black">Nominal</td>
                                         <td class="text-black"> :</td>
-                                        <td class="text-black" >Rp. <?= number_format($pembayaran_data['total_harga']); ?></td>
+                                        <td class="text-black">Rp. <?= number_format($pembayaran_data['total_harga']); ?></td>
                                     </tr>
                                     <tr>
                                         <td class="text-black">Tgl Transfer</td>
@@ -260,24 +298,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['status_mobil'])) {
                             </li>
                             <li class="list-group-item bg-dark text-white">
                                 <p class="card-text" style="color: black">
-                                    <strong>Status:</strong> 
-                                <tr>
-                                    <td>Status Mobil</td>
-                                    <td> :</td>
-                                    <td>
-                                        <form method="POST" action="">
-                                            <select class="form-control" name="status_mobil">
-                                                <option value="AKTIF" <?php if($row['s_mobil'] == 'AKTIF'){echo 'selected';}?>>
-                                                    AKTIF
-                                                </option>
-                                                <option value="TIDAK AKTIF" <?php if($row['s_mobil'] == 'TIDAK AKTIF'){echo 'selected';}?>>
-                                                    TIDAK AKTIF
-                                                </option>
-                                            </select>   
-                                            <button type="submit" class="btn btn-primary float-right mt-2">Ubah Status Mobil</button>
-                                        </form>
-                                    </td>
-                                </tr>
+                                    <strong>Status:</strong>
+                                    <tr>
+                                        <td>Status Mobil</td>
+                                        <td> :</td>
+                                        <td>
+                                            <form method="POST" action="">
+                                                <select class="form-control" name="status_mobil">
+                                                    <option value="AKTIF" <?php if ($row['s_mobil'] == 'AKTIF') {
+                                                                                echo 'selected';
+                                                                            } ?>>
+                                                        AKTIF
+                                                    </option>
+                                                    <option value="TIDAK AKTIF" <?php if ($row['s_mobil'] == 'TIDAK AKTIF') {
+                                                                                    echo 'selected';
+                                                                                } ?>>
+                                                        TIDAK AKTIF
+                                                    </option>
+                                                </select>
+                                                <button type="submit" class="btn btn-primary float-right mt-2">Ubah Status Mobil</button>
+                                            </form>
+                                        </td>
+                                    </tr>
                             </li>
                         </ul>
                     </div>
@@ -336,13 +378,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['status_mobil'])) {
                                 <td>
                                     <form method="POST" action="">
                                         <select class="form-control" name="status">
-                                            <option value="Sedang di proses" <?php if($row['konf_pembayaran'] == 'Sedang di proses'){echo 'selected';}?>>
+                                            <option value="Sedang di proses" <?php if ($row['konf_pembayaran'] == 'Sedang di proses') {
+                                                                                    echo 'selected';
+                                                                                } ?>>
                                                 Sedang di proses
                                             </option>
-                                            <option value="Pembayaran diterima" <?php if($row['konf_pembayaran'] == 'Pembayaran diterima'){echo 'selected';}?>>
+                                            <option value="Pembayaran diterima" <?php if ($row['konf_pembayaran'] == 'Pembayaran diterima') {
+                                                                                    echo 'selected';
+                                                                                } ?>>
                                                 Pembayaran diterima
                                             </option>
-                                        </select>   
+                                        </select>
                                         <button type="submit" class="btn btn-primary float-right mt-2">Ubah Status Pembayaran</button>
                                     </form>
                                 </td>
@@ -383,9 +429,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['status_mobil'])) {
         <p>&copy; 2024 Lucky Rent Car. All Rights Reserved.</p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 

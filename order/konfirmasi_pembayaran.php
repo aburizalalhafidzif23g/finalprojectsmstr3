@@ -189,7 +189,7 @@ $hasil = $result->fetch_assoc();
                                         <tr>
                                             <td>No Rekening</td>
                                             <td>:</td>
-                                            <td><input type="text" name="no_rek" required class="form-control"></td>
+                                            <td><input type="text" name="no_rek" required class="form-control" pattern="\d+" title="Hanya boleh angka"></td>
                                         </tr>
                                         <tr>
                                             <td>Atas Nama</td>
@@ -204,7 +204,14 @@ $hasil = $result->fetch_assoc();
                                         <tr>
                                             <td>Tanggal Transfer</td>
                                             <td>:</td>
-                                            <td><input type="date" name="tanggal_pembayaran" required class="form-control"></td>
+                                            <td>
+                                                <input 
+                                                    type="date" 
+                                                    name="tanggal_pembayaran" 
+                                                    required 
+                                                    class="form-control" 
+                                                    min="<?php echo $hasil['tgl_sewa']; ?>">
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td><label>Total yang Harus Dibayar</label></td>

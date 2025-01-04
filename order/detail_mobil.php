@@ -90,12 +90,12 @@ while ($car = $result->fetch_assoc()) {
     
 
     <div class="container py-5">
-        <div class="container py-5">
+        
             <?php if (!empty($search_query)): ?>
                 <h1 class="text-center">Hasil Pencarian untuk "<?php echo htmlspecialchars($search_query); ?>"</h1>
                     <div class="row">
                         <?php foreach ($cars as $car): ?>
-                            <div class="col-4">
+                            <div class="col-8">
                                 <div class="card mb-4">
                                     <div class="car-image-top">
                                         <?php if (!empty($cars[0]['poto'])): ?>
