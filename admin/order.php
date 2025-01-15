@@ -33,6 +33,7 @@
                                         <th>No Polisi</th>
                                         <th>Merk</th>
                                         <th>Nama Peminjam</th>
+                                        <th>Alamat Peminjam</th>
                                         <th>Tujuan</th>
                                         <th>Tgl Mulai Order</th>
                                         <th>Tgl Selesai Order</th>
@@ -55,6 +56,7 @@
                                             <td><?php echo $data['no_polisi']; ?></td>
                                             <td><?php echo $data['merk']; ?></td>
                                             <td><?php echo $data['nama_sewa']; ?></td>
+                                            <td><?php echo $data['alamat']; ?></td>
                                             <td><?php echo $data['tujuan']; ?></td>
                                             <td><?php echo $data['tgl_sewa']; ?></td>
                                             <td><?php echo $data['tgl_kembali']; ?></td>
