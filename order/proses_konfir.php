@@ -30,14 +30,14 @@ $target_file = $target_dir . basename($bukti_pembayaran['name']);
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
 if (getimagesize($bukti_pembayaran["tmp_name"]) === false) {
-    echo "<script>alert('File bukan ganbar.'); window.history.back();</script>";
+    echo "<script>alert('File bukan gambar.'); window.history.back();</script>";
     exit;
 }
 if (file_exists($target_file)) {
     echo "<script>alert('File sudah ada.'); window.history.back();</script>";
     exit;
 }
-if ($bukti_pembayaran["size"] > 1000000) {
+if ($bukti_pembayaran["size"] > 100000000) {
     echo "<script>alert('Ukuran file terlalu besar.'); window.history.back();</script>";
     exit;
 }

@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);  // Enkripsi password
-    $maxFileSize = 50 * 1024 * 1024; // 50MB in bytes
+    $maxFileSize = 100 * 1024 * 1024; // 100MB in bytes
     $foto = null; // Inisialisasi variabel foto
 
     // Cek duplikasi username, email, atau nomor_hp
@@ -20,18 +20,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($existing_user) {
         if ($existing_user['username'] === $username) {
-            $error = "Username sudah terdaftar. Silakan gunakan username lain.";
+          echo "<script>alert('Username sudah terdaftar. Silahkan gunakan username lain.')</script>";
         } elseif ($existing_user['email'] === $email) {
-            $error = "Email sudah terdaftar. Silakan gunakan email lain.";
+          echo "<script>alert('Email sudah terdaftar. Silakan gunakan email lain.')</script>";
         } elseif ($existing_user['nomor_hp'] === $nomor_hp) {
-            $error = "Nomor HP sudah terdaftar. Silakan gunakan nomor HP lain.";
+          echo "<script>alert('Nomor HP sudah terdaftar. Silakan gunakan nomor HP lain.')</script>";
         }
     } else {
         // Proses upload foto
         if (isset($_FILES['foto']) && $_FILES['foto']['error'] == 0) {
             // Periksa ukuran file
             if ($_FILES['foto']['size'] > $maxFileSize) {
-                $error = "Ukuran file terlalu besar. Maksimal ukuran file adalah 100MB.";
+              echo "<script>alert('Ukuran file terlalu besar. Maksimal ukuran file adalah 100MB.')</script>";
             } else {
                 $foto_name = $_FILES['foto']['name'];
                 $foto_tmp = $_FILES['foto']['tmp_name'];
@@ -309,13 +309,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                   <input type="password" class="form-control" id="password" name="password" placeholder="Password"
                     required>
                 </div>
-                <!--<div class="form-group">
-                  <label for="role" class="form-label">Role</label>
-                  <select class="form-control" id="role" name="role" required>
-                    <option value="admin">Admin</option>
-                    <option value="user">User</option>
-                  </select>
-                </div>-->
                 <button type="submit" class="btn btn-primary w-100">Register</button>
               </form>
               <div class="text-center mt-3">
